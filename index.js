@@ -2,7 +2,17 @@ for(var i=0; i< document.querySelectorAll(".drum").length; i++)
 {
     document.querySelectorAll(".drum")[i].addEventListener("click", function()
 {
-    switch(this.innerHTML){
+    PlaySound(this.innerHTML);    
+});
+}
+
+document.addEventListener("keypress", function(event){
+  PlaySound(event.key);   
+});
+
+function PlaySound(key){
+    
+    switch(key){
         case 'w':
             new Audio("./sounds/crash.mp3").play();
             break;
@@ -25,9 +35,7 @@ for(var i=0; i< document.querySelectorAll(".drum").length; i++)
             new Audio("./sounds/tom-4.mp3").play();
             break;
     }
-    
-});
-}
+};
 
 
 function calculator(num1, num2, operation){
