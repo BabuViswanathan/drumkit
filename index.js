@@ -8,7 +8,16 @@ for(var i=0; i< document.querySelectorAll(".drum").length; i++)
 
 document.addEventListener("keypress", function(event){
   PlaySound(event.key);   
+  
 });
+
+function FlashButton(key){
+var button = document.querySelector("." + key);
+button.classList.add("pressed");
+setTimeout(() => {
+button.classList.remove("pressed");
+}, 100);
+};
 
 function PlaySound(key){
     
@@ -35,6 +44,8 @@ function PlaySound(key){
             new Audio("./sounds/tom-4.mp3").play();
             break;
     }
+
+    FlashButton(key);
 };
 
 
